@@ -23,14 +23,6 @@
     }
   },
   "intents" : [ {
-    "path" : "/KnowledgeBase/FAQ.Пустой шаблон FAQ",
-    "enabled" : true,
-    "shared" : false,
-    "classificationRules" : {
-      "refs" : [ ]
-    },
-    "priority" : 0
-  }, {
     "path" : "/пока",
     "enabled" : true,
     "shared" : false,
@@ -54,17 +46,52 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
-    "path" : "/KnowledgeBase/FAQ.Пустой шаблон FAQ/Root/Новый вопрос",
+    "path" : "/ai_question",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "New question"
+      "text" : "что такое искусственный интеллект"
     }, {
-      "text" : "Новый вопрос"
+      "text" : "расскажи про искусственный интеллект"
+    }, {
+      "text" : "определение искусственного интеллекта"
     } ],
     "classificationRules" : {
       "refs" : [ ]
     },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/programming_question",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "как начать изучение программирования"
+    }, {
+      "text" : "как начать программировать"
+    }, {
+      "text" : "что нужно для изучения программирования"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/ml_question",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "что такое машинное обучение"
+    }, {
+      "text" : "расскажи про машинное обучение"
+    }, {
+      "text" : "определение машинного обучения"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
     "priority" : 0
   } ],
   "entities" : [ ],
@@ -173,16 +200,6 @@
     "name" : "zb.number",
     "enabled" : false
   } ],
-  "faq" : [ {
-    "intentPath" : "/KnowledgeBase/FAQ.Пустой шаблон FAQ",
-    "replies" : [ ]
-  }, {
-    "intentPath" : "/KnowledgeBase/FAQ.Пустой шаблон FAQ/Root/Новый вопрос",
-    "replies" : [ {
-      "type" : "text",
-      "text" : "",
-      "markup" : "plain"
-    } ]
-  } ],
+  "faq" : [ ],
   "skills" : [ ]
 }
