@@ -51,6 +51,7 @@
     "classificationRules" : {
       "refs" : [ ]
     },
+    "patterns" : [ ],
     "priority" : 0
   }, {
     "path" : "/KnowledgeBase/FAQ.Пустой шаблон FAQ/Root/Новый вопрос",
