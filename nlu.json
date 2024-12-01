@@ -93,8 +93,186 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/Пример материала",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "*пример* (@Название_материала*) *(@Формат_материала*)*"
+    }, {
+      "text" : "*пример* (@Название_материала*)"
+    }, {
+      "text" : "*(@Название_материала*) *пример* *(@Формат_материала*)*"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "Название_материала",
+      "entity" : "Название_материала",
+      "required" : true,
+      "prompts" : [ "Укажите название материала, пример которого вы хотите." ]
+    }, {
+      "name" : "Формат_материала",
+      "entity" : "Название_материала",
+      "required" : false,
+      "prompts" : [ ]
+    } ],
+    "priority" : 0
+  }, {
+    "path" : "/Определение термина",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "*опред* (@Термин*)"
+    }, {
+      "text" : "*значит* (@Термин*)"
+    }, {
+      "text" : "*что* (@Термин*) *значит*"
+    }, {
+      "text" : "*объясн* (@Термин*)"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "Термин",
+      "entity" : "Термин",
+      "required" : true,
+      "prompts" : [ "Какой термин вы хотите узнать?" ]
+    } ],
+    "priority" : 0
+  }, {
+    "path" : "/Объяснение материала",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "*объясн* (@Название_материала*) *(@Тип_материала*)*"
+    }, {
+      "text" : "*объясн* (@Название_материала*)"
+    }, {
+      "text" : "*(@Название_материала*) *объясн* *(@Тип_материала*)*"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "Название материала",
+      "entity" : "Название_материала",
+      "required" : true,
+      "prompts" : [ "Укажите материал, который нужно объяснить." ]
+    }, {
+      "name" : "Тип материала",
+      "entity" : "Тип_материала",
+      "required" : false,
+      "prompts" : [ "Укажите тип материала (например, курс, тренажёр)." ]
+    } ],
+    "priority" : 0
   } ],
-  "entities" : [ ],
+  "entities" : [ {
+    "entity" : {
+      "name" : "Формат_материала",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Документ", "Файл", "PDF" ],
+      "value" : "{\"id\": 301, \"format\": \"document\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Видео", "Запись", "Видеоурок" ],
+      "value" : "{\"id\": 302, \"format\": \"video\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Текст" ],
+      "value" : "{\"id\": 303, \"format\": \"text\"}"
+    } ]
+  }, {
+    "entity" : {
+      "name" : "Термин",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Искусственный интеллект", "ИИ", "AI" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "name" : "Название_материала",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Продвинутый Python", "Python для профессионалов", "Python продвинутый уровень", "Python" ],
+      "value" : "{\"id\": 103, \"type\": \"course\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Введение в ИИ", "Основы ИИ", "Интеллектуальные системы" ],
+      "value" : "{\"id\": 101, \"type\": \"lecture\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Основы алгоритмов", "Алгоритмы", "Методы алгоритмов" ],
+      "value" : "{\"id\": 102, \"type\": \"lecture\"}"
+    } ]
+  }, {
+    "entity" : {
+      "name" : "Тип_материала",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Курс", "Программа обучения", "Модуль", "Лекция" ],
+      "value" : "{\"id\": 201, \"category\": \"training\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Тренажёр", "Практика", "Задачи" ],
+      "value" : "{\"id\": 202, \"category\": \"practice\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Пример", "Пример выполнения", "Решение" ],
+      "value" : "{\"id\": 203, \"category\": \"example\"}"
+    } ]
+  } ],
   "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
   "spellerDictionary" : [ ],
   "systemEntities" : [ {
