@@ -38,16 +38,6 @@ theme: /
             }
         a: {{$session.response}}  // Отправляем ответ
 
-    
-
-
-
-
-
-
-        
-    
-    
     # Обработка непонятых запросов
     state: NoMatch
         event!: noMatch

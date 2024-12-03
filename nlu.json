@@ -47,7 +47,7 @@
     "priority" : 0
   }, {
     "path" : "/ai_question",
-    "enabled" : true,
+    "enabled" : false,
     "shared" : false,
     "phrases" : [ {
       "text" : "что такое искусственный интеллект"
@@ -63,7 +63,7 @@
     "priority" : 0
   }, {
     "path" : "/programming_question",
-    "enabled" : true,
+    "enabled" : false,
     "shared" : false,
     "phrases" : [ {
       "text" : "как начать изучение программирования"
@@ -79,7 +79,7 @@
     "priority" : 0
   }, {
     "path" : "/ml_question",
-    "enabled" : true,
+    "enabled" : false,
     "shared" : false,
     "phrases" : [ {
       "text" : "что такое машинное обучение"
