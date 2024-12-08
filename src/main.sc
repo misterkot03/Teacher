@@ -4,41 +4,33 @@ theme: /
 
     state: Start
         q!: $regex</start>
-        a: Добро пожаловать! Вы можете спросить: "Дай определение [термина]" или "Объясни [термин]".
+        a: Добро пожаловать! Вы можете спросить, например: "Дай определение термина Искусственный интеллект" или "Объясни Алгоритм".
     
     state: termDefinition
-        intent!: /Определение термина
+        intent!: /define_term
         script:
-            // Проверяем, что сущность "Термин" найдена
-            if ($entities.Термин) {
-                // Извлекаем значение термина из сущностей
-                $session.termName = $entities.Термин[0].value;  // Извлекаем значение термина
-               
-                // Данные для терминов с их определениями
-                $session.termData = {
-                    "Искусственный интеллект": {
-                        "definition": "Искусственный интеллект (ИИ) — это область информатики, изучающая создание систем, способных решать задачи, требующие человеческого интеллекта."
-                    },
-                    "Алгоритм": {
-                        "definition": "Алгоритм — это последовательность действий, выполняемых для решения задачи."
-                    },
-                    "Полиморфизм": {
-                        "definition": "Полиморфизм — это принцип объектно-ориентированного программирования, позволяющий методам работать с различными типами данных."
-                    }
-                };
+            // Проверяем, что слот Term распознан
+            // Обычно для обязательного слота при успешном распознавании 
+            // значение будет доступно в $parseTree._Term.value
+            if ($parseTree.Term && $parseTree.Term.value) {
+                $session.termName = $entities.Term;
+              
     
-                // Проверяем, есть ли определение для найденного термина
-                if ($session.termData[$session.termName]) {
-                    // Если термин найден, выводим его определение
-                    $session.response = $session.termData[$session.termName].definition;
-                } else {
-                    // Если данных для термина нет
-                    $session.response = "Извините, я не знаю точного определения для термина '" + $session.termName + "'.";
-                }
-            }
-        a: {{$session.response}}  // Отправляем ответ
-
-    # Обработка непонятых запросов
+                // Справочник определений
+                $session.termData = JSON.parse($parseTree.Term[0].value);
+    
+              
+            $session.response = termData.definition;
+            
+         } 
+        a: {{$session.response}}
+        a: {{$parseTree.MalfunctionName}}
+        a: {{$parseTree._Term.valu}}
+        a: {{$parseTree._Term}}
+        a: {{$parseTree.Term.value}}
+        a: {{$parseTree._Term.value}}
+        a: {{$entities.Term}}
+        a: {{JSON.stringify($parseTree)}}
     state: NoMatch
         event!: noMatch
         a: Извините, я не понял ваш запрос. Попробуйте сформулировать его иначе.
