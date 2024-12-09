@@ -150,7 +150,7 @@
     } ],
     "priority" : 0
   }, {
-    "path" : "/Объяснение материала",
+    "path" : "/explain_material",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
@@ -165,14 +165,14 @@
     },
     "patterns" : [ ],
     "slots" : [ {
-      "name" : "Название материала",
-      "entity" : "Название_материала",
+      "name" : "MaterialName",
+      "entity" : "MaterialName",
       "required" : true,
       "prompts" : [ "Укажите материал, который нужно объяснить." ],
       "array" : false
     }, {
-      "name" : "Тип материала",
-      "entity" : "Тип_материала",
+      "name" : "MaterialType",
+      "entity" : "MaterialType",
       "required" : false,
       "prompts" : [ "Укажите тип материала (например, курс, тренажёр)." ],
       "array" : false
@@ -181,7 +181,7 @@
   } ],
   "entities" : [ {
     "entity" : {
-      "name" : "Формат_материала",
+      "name" : "Format",
       "enabled" : true,
       "shared" : false,
       "type" : "annotation",
@@ -222,12 +222,12 @@
     },
     "records" : [ {
       "type" : "synonyms",
-      "rule" : [ "ИИ", "Искусственный интеллект" ],
-      "value" : "{\n  \"definition\": \"Искусственный интеллект (ИИ) — это область информатики, изучающая создание систем, способных решать задачи, требующие человеческого интеллекта.\"\n}"
+      "rule" : [ "ИИ", "Искусственный интеллект", "Алгоритм", "алгоритм" ],
+      "value" : "{\n  \"name\": \"Алгоритм\"\n}"
     } ]
   }, {
     "entity" : {
-      "name" : "Название_материала",
+      "name" : "MaterialName",
       "enabled" : true,
       "shared" : false,
       "type" : "annotation",
@@ -254,7 +254,7 @@
     } ]
   }, {
     "entity" : {
-      "name" : "Тип_материала",
+      "name" : "MaterialType",
       "enabled" : true,
       "shared" : false,
       "type" : "annotation",
